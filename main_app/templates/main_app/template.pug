@@ -8,7 +8,23 @@ html(lang="ru")
 		meta(http-equiv='X-UA-Compatible' content='IE=edge')
 		meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no')
 		link(rel='shortcut icon' href='favicon.ico')
-		link(rel='stylesheet' href='css/main.css')
-		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
-		script(type='text/javascript' src='js/main.min.js')
+		link(rel='stylesheet' href=url_for('static', filename='css/main.css'))
+		script(type='text/javascript' src=url_for('static', filename='js/jquery-3.1.0.min.js'))
 	body
+		-if(type == 'choose')
+			.choose
+				a(href='/frontend').choose__item Frontend
+				a(href='/backend').choose__item Backend
+		-if(type == 'frontend')
+			script(type='text/javascript' src=url_for('static', filename='js/main.min.js'))
+			.result
+		-if(type == 'backend')
+			.result
+				each i in data
+					.result__line
+						.result__column= i.Imei
+						.result__column= i.CurrentDateTime
+						.result__column= i.GPSDateTime
+						.result__column= i.Datatype
+						.result__column= i.Address
+						.result__column= i.Distance
