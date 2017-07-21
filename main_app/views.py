@@ -6,6 +6,6 @@ from main_app.models import *
 main_app = Blueprint('main_app', __name__, template_folder='templates/')
 
 @main_app.route('/')
-@main_app.route('/<lang>/')
-def index(lang=None):
-    return pyvool.render('main_app/index.j2', lang, MAIN=True)
+def index():
+    alldata = Data.query.all()
+    return render_template('main_app/template.pug', context=alldata)

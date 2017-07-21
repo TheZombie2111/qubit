@@ -16,20 +16,20 @@ migrate = Migrate(app, db)
 
 class Data(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    imei = db.Column(db.String(20))
-    currentDateTime = db.Column(db.DateTime)
-    gpsDateTime = db.Column(db.DateTime)
+    Imei = db.Column(db.String(20))
+    CurrentDateTime = db.Column(db.DateTime)
+    GPSDateTime = db.Column(db.DateTime)
     Datatype = db.Column(db.Integer)
-    address = db.Column(db.String(1000))
-    distance = db.Column(db.Integer)
+    Address = db.Column(db.String(1000))
+    Distance = db.Column(db.Integer)
 
-    def __init__(self, name, code, default, active):
-        self.imei = imei
-        self.currentDateTime = currentDateTime
-        self.gpsDateTime = gpsDateTime
+    def __init__(self, Imei, CurrentDateTime, GPSDateTime, Datatype, Address, Distance):
+        self.Imei = Imei
+        self.CurrentDateTime = CurrentDateTime
+        self.GPSDateTime = GPSDateTime
         self.Datatype = Datatype
-        self.address = address
-        self.distance = distance
+        self.Address = Address
+        self.Distance = Distance
 
     def __repr__(self):
-        return self.imei
+        return self.Imei
