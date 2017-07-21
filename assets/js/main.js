@@ -1,9 +1,10 @@
+"use strict";
+
 $(document).ready(function(){
 		$.ajax({
 		method: 'POST',
 		url: '/request',
 	}).done(function(response){
-		console.log(response);
 		for(var i in response){
 			$('.result').append(`
 					<div class='result__line'>

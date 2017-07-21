@@ -1,7 +1,6 @@
 from main_app.views import main_app
-from flask import Flask, send_from_directory, request, redirect, render_template, abort
+from flask import Flask
 import os
-import sys
 
 app = Flask(__name__)
 
