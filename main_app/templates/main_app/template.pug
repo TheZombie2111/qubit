@@ -10,21 +10,40 @@ html(lang="ru")
 		link(rel='shortcut icon' href='favicon.ico')
 		link(rel='stylesheet' href=url_for('static', filename='css/main.css'))
 		script(type='text/javascript' src=url_for('static', filename='js/jquery-3.1.0.min.js'))
+		script(type='text/javascript' src=url_for('static', filename='js/main.min.js'))
 	body
 		-if(type == 'choose')
 			.choose
 				a(href='/frontend').choose__item Frontend
 				a(href='/backend').choose__item Backend
+		-else
+			.switcher
+				.switcher__item.active Task 1
+				.switcher__item Task 2
 		-if(type == 'frontend')
-			script(type='text/javascript' src=url_for('static', filename='js/main.min.js'))
-			.result
+			.tab.active
+				.result
+			.tab
+				.result
 		-if(type == 'backend')
-			.result
-				each i in data
-					.result__line
-						.result__column= i.Imei
-						.result__column= i.CurrentDateTime
-						.result__column= i.GPSDateTime
-						.result__column= i.Datatype
-						.result__column= i.Address
-						.result__column= i.Distance
+			.tab.active
+				.result
+					each i in data
+						.result__line
+							.result__column= i.Imei
+							.result__column= i.CurrentDateTime
+							.result__column= i.GPSDateTime
+							.result__column= i.Datatype
+							.result__column= i.Address
+							.result__column= i.Distance
+			.tab
+				.result
+					each i in data
+						-if (i.Datatype == 1) 
+							prev = i.Distance
+						-if (i.Datatype == 2)
+							.result__line
+								.result__column= i.CurrentDateTime
+								.result__column= i.Datatype
+								.result__column= i.Address
+								.result__column= i.Distance
