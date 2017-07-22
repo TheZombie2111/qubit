@@ -1,9 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Blueprint, render_template, request, abort, url_for,\
-    redirect, abort, jsonify
+from flask import Blueprint, render_template, jsonify
 from main_app.models import *
-import time
-import datetime
 
 main_app = Blueprint('main_app', __name__, template_folder='templates/')
 
