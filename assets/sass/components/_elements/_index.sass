@@ -54,6 +54,14 @@
 		&.active
 			background-color: white
 			color: #232323
+	&__home
+		@include flex(row, center, center, nowrap)
+		width: 100px
+		height: 40px
+		color: white
+		background-color: #232323
+		text-decoration: none
+		border-top: 3px solid grey
 
 @media screen and (max-width: 1280px)
 	@import '_1280.sass'

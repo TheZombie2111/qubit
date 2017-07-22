@@ -18,6 +18,7 @@ html(lang="ru")
 				a(href='/backend').choose__item Backend
 		-else
 			.switcher
+				a(href='/').switcher__home Home
 				.switcher__item.active Task 1
 				.switcher__item Task 2
 		-if(type == 'frontend')
@@ -38,12 +39,9 @@ html(lang="ru")
 							.result__column= i.Distance
 			.tab
 				.result
-					each i in data
-						-if (i.Datatype == 1) 
-							prev = i.Distance
-						-if (i.Datatype == 2)
-							.result__line
-								.result__column= i.CurrentDateTime
-								.result__column= i.Datatype
-								.result__column= i.Address
-								.result__column= i.Distance
+					each i in secondary
+						.result__line
+							.result__column= i.CurrentDateTime
+							.result__column= i.Datatype
+							.result__column= i.Address
+							.result__column= i.Distance

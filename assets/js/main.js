@@ -21,11 +21,12 @@ $(document).ready(function(){
 				);
 				if (response[i]['Datatype'] == 1){
 					var prev = response[i]['Distance'];
-					var prevDate = new Date(response[i]['CurrentDateTime']);
+					var prevDate = response[i]['CurrentDateTime'];
 				}
 				if (response[i]['Datatype'] == 2){
-					var hours = (new Date(response[i]['CurrentDateTime']).getHours() - prevDate.getHours());
-					var minutes = (new Date(response[i]['CurrentDateTime']).getMinutes() - prevDate.getMinutes());
+					let time = new Date(new Date(response[i]['CurrentDateTime']) - new Date(prevDate));
+					let hours = time.getHours() - 2;
+					let minutes = time.getMinutes();
 					minutes < 0 ? minutes = -minutes : false;
 					String(minutes).length < 2 ? minutes = '0' + String(minutes) : false;
 					var time = hours + ':' + minutes;
